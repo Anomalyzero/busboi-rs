@@ -1,0 +1,34 @@
+[package]
+name = "busboi-rs"
+version = "0.1.0"
+edition = "2024"
+authors = ["Al Schwach", "Max Baldwin"]
+#license = "MIT"
+#TODO: Determine license
+description = "A simple Rust client for SunSpec/Outback Power Devices"
+#repository = "https://github.com/PeterGrace/sunspec_rs"
+#TODO: Clean up, commit and push
+
+[[bin]]
+name = "print_all_gsconfig"
+path = "src/print_all_gsconfig.rs"
+
+[[bin]]
+name = "populate_models_for_sub"
+path = "src/populate_models_for_sub.rs"
+
+[[bin]]
+name = "scan_subs"
+path = "src/scan_subs.rs"
+
+[[bin]]
+name = "get_models"
+path = "src/get_models.rs"
+
+[dependencies]
+clap-verbosity-flag = "2.0.1"
+sunspec_rs="0.7.0"
+tracing = "0.1.37"
+tracing-log = "0.1.4"
+tracing-subscriber = "0.3.20"
+tokio = "1.48.0"

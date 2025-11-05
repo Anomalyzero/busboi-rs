@@ -1,0 +1,256 @@
+<sunSpecModels v="1">
+    <model id="64268" len="53" name="Power_Prioritization_Basic_Diagnostics">
+        <block len="53">
+            <point id="AvgGridVoltage" type="int16" units="V" sf="V_SF" offset="0" /> <!-- V_SF = x10 -->
+            <point id="GridFrequency" type="int32" units="Hz" sf="Hz_SF" offset="1" /> <!-- Hz_SF = x1000 -->
+            <point id="RealPower" type="int16" units="W" offset="3" />
+            <point id="ReactivePower" type="int16" units="VAR" offset="4" />
+            <point id="VoltWattExportLimit" type="int16" units="W" offset="5" />
+            <point id="FreqWattRealPowerTarget" type="int16" units="W" offset="6" />
+            <point id="FreqWattActiveStatus" type="enum16" offset="7">
+                <symbol id="INACTIVE">0</symbol>
+                <symbol id="ACTIVE">1</symbol>
+            </point>
+            <point id="WattVarReactivePowerTarget" type="int16" units="VAR" offset="8" />
+            <point id="VoltVarReactivePowerTarget" type="int16" units="VAR" offset="9" />
+            <point id="VoltVarReferenceVoltage" type="int16" units="V_Percent" sf="V_Percent_SF" offset="10" /> <!-- V_Percent_SF = x10 -->
+            <point id="ConstantPowerFactorReactivePowerTarget" type="int16" units="VAR" offset="11" />
+            <point id="ConstantReactivePowerCommandReactivePowerTarget" type="int16" units="VAR" offset="12" />
+            <point id="RealPowerLimit" type="int16" units="W" offset="13" />
+            <point id="RealPowerSettingTarget" type="int16" units="W" offset="14" />
+            <point id="GSLRealPowerCommand" type="int16" units="W_Percent" sf="W_Percent_SF" offset="15" /> <!-- W_Percent_SF = x10 -->
+            <point id="GSLRealPowerLowLimit" type="int16" units="W_Percent" sf="W_Percent_SF" offset="16" />
+            <point id="GSLRealPowerHighLimit" type="int16" units="W_Percent" sf="W_Percent_SF" offset="17" />
+            <point id="GSLRealPowerCommandActiveStatus" type="enum16" offset="18">
+                <symbol id="INACTIVE">0</symbol>
+                <symbol id="ACTIVE">1</symbol>
+            </point>
+            <point id="GSLReactivePowerCommand" type="int16" units="VAR_Percent" sf="VAR_Percent_SF" offset="19" /> <!-- VAR_Percent_SF = x10 -->
+            <point id="MaxReactiveAmpsReference" type="int16" units="A" offset="20" /> <!-- Raw sampled -->
+            <point id="ReactiveAmpsFromCapacitor" type="int16" units="A" sf="A_SF" offset="21" /> <!-- A_SF = x100 -->
+            <point id="ReactiveAmpsTarget" type="int16" units="A" sf="A_SF" offset="22" />
+            <point id="ReactiveAmpsTargetFromGSL" type="int16" units="A" sf="A_SF" offset="23" />
+            <point id="RealPowerAmpsReferenceTotal" type="int16" units="A" offset="24" />
+            <point id="RealPowerAmpsReference1" type="int16" units="A" offset="25" />
+            <point id="RealPowerAmpsReference2" type="int16" units="A" offset="26" />
+            <point id="ReactiveAmpsReference" type="int16" units="A" offset="27" />
+            <point id="RealPowerAmpsReferenceTarget" type="int16" units="A" offset="28" />
+            <point id="ApparentPowerVectorAmpLimit" type="int16" units="A" offset="29" /> <!-- NOT raw sampled -->
+            <point id="PowerAsWattsNegativeLimit" type="int16" units="W" offset="30" />
+            <point id="PowerAsWattsPositiveLimit" type="int16" units="W" offset="31" />
+            <point id="PowerTargetAsPercent" type="int16" units="W_Percent" sf="W_Percent_SF" offset="32" />
+            <point id="PowerTargetAsAmps" type="int16" units="A" sf="A_SF" offset="33" />
+            <point id="CTTargetSelfSupply" type="int16" units="W_Percent" sf="W_Percent_SF" offset="34" />
+            <point id="CTTargetZeroExport" type="int16" units="W_Percent" sf="W_Percent_SF" offset="35" />
+            <point id="CTTargetZeroImport" type="int16" units="W_Percent" sf="W_Percent_SF" offset="36" />
+            <point id="CTTargetGenConnected" type="int16" units="W_Percent" sf="W_Percent_SF" offset="37" />
+            <point id="V_SF" access="r" type="sunssf" offset="38" />
+            <point id="Hz_SF" access="r" type="sunssf" offset="39" />
+            <point id="V_Percent_SF" access="r" type="sunssf" offset="40" />
+            <point id="W_Percent_SF" access="r" type="sunssf" offset="41" />
+            <point id="VAR_Percent_SF" access="r" type="sunssf" offset="42" />
+            <point id="A_SF" access="r" type="sunssf" offset="43" />
+            <point id="Pad0" type="pad" offset="44" />
+            <point id="Pad1" type="pad" offset="45" />
+            <point id="Pad2" type="pad" offset="46" />
+            <point id="Pad3" type="pad" offset="47" />
+            <point id="Pad4" type="pad" offset="48" />
+            <point id="Pad5" type="pad" offset="49" />
+            <point id="Pad6" type="pad" offset="50" />
+            <point id="Pad7" type="pad" offset="51" />
+            <point id="Pad8" type="pad" offset="52" />
+        </block>
+    </model>
+    <strings id="64268" locale="en">
+        <model>
+            <label>Power Prioritization Basic Diagnostics</label>
+            <description>Basic diagnostics model for understanding power prioritization</description>
+            <notes></notes>
+        </model>
+        <point id="AvgGridVoltage">
+            <label>Average Grid Voltage from GSL Measurements</label>
+            <description>The average grid voltage as reported by the GSL - when the ATS is grid connected, these measurements are taken from the AC input of the inverter, while when the ATS is not grid connected, the measurements are taken from the interconnect via the CTs and ATS connection to the inverter</description>
+            <notes></notes>
+        </point>
+        <point id="GridFrequency">
+            <label>Grid Frequency from GSL Measurements</label>
+            <description>The grid frequency as reported by the GSL - this is calculated using the voltage measurements' period</description>
+            <notes></notes>
+        </point>
+        <point id="RealPower">
+            <label>Real Power from GSL Measurements</label>
+            <description>The real power being imported from or exported to the grid as reported by the GSL</description>
+            <notes></notes>
+        </point>
+        <point id="ReactivePower">
+            <label>Reactive Power from GSL Measurements</label>
+            <description>The reactive power being imported from or exported to the grid as reported by the GSL</description>
+            <notes></notes>
+        </point>
+        <point id="VoltWattExportLimit">
+            <label>Volt Watt Export Limit</label>
+            <description>The export limit for real power based on the volt watt control algorithm</description>
+            <notes></notes>
+        </point>
+        <point id="FreqWattRealPowerTarget">
+            <label>Frequency Watt Real Power Target</label>
+            <description>The target for real power based on the frequency watt control algorithm</description>
+            <notes></notes>
+        </point>
+        <point id="FreqWattActiveStatus">
+            <label>Frequency Watt Active Status</label>
+            <description>Active status of the frequency watt control algorithm</description>
+            <notes></notes>
+        </point>
+        <point id="WattVarReactivePowerTarget">
+            <label>Watt Var Reactive Power Target</label>
+            <description>The target for reactive power based on the watt var control algorithm</description>
+            <notes></notes>
+        </point>
+        <point id="VoltVarReactivePowerTarget">
+            <label>Volt Var Reactive Power Target</label>
+            <description>The target for reactive power based on the volt var control algorithm</description>
+            <notes></notes>
+        </point>
+        <point id="VoltVarReferenceVoltage">
+            <label>Volt Var Reference Voltage</label>
+            <description>The reference voltage used to run the volt var algorithm</description>
+            <notes></notes>
+        </point>
+        <point id="ConstantPowerFactorReactivePowerTarget">
+            <label>Constant Power Factor Reactive Power Target</label>
+            <description>The target for reactive power based on the constant power factor control algorithm</description>
+            <notes></notes>
+        </point>
+        <point id="ConstantReactivePowerCommandReactivePowerTarget">
+            <label>Constant Reactive Power Command Reactive Power Target</label>
+            <description>The target for reactive power based on the constant reactive power command</description>
+            <notes></notes>
+        </point>
+        <point id="RealPowerLimit">
+            <label>Real Power Limit</label>
+            <description>The limit for real power based on the real power limit</description>
+            <notes></notes>
+        </point>
+        <point id="RealPowerSettingTarget">
+            <label>Real Power Setting Target</label>
+            <description>The target for real power based on the real power setting</description>
+            <notes></notes>
+        </point>
+        <point id="GSLRealPowerCommand">
+            <label>GSL Real Power Command</label>
+            <description>The real power command as requested by the GSL</description>
+            <notes></notes>
+        </point>
+        <point id="GSLRealPowerLowLimit">
+            <label>GSL Real Power Low Limit</label>
+            <description>The lower limit on real power as requested by the GSL</description>
+            <notes></notes>
+        </point>
+        <point id="GSLRealPowerHighLimit">
+            <label>GSL Real Power High Limit</label>
+            <description>The upper limit on real power as requested by the GSL</description>
+            <notes></notes>
+        </point>
+        <point id="GSLRealPowerCommandActiveStatus">
+            <label>GSL Real Power Command Active Status</label>
+            <description>The active status of the GSL's real power command</description>
+            <notes></notes>
+        </point>
+        <point id="GSLReactivePowerCommand">
+            <label>GSL Reactive Power Command</label>
+            <description>The reactive power command as requested by the GSL</description>
+            <notes></notes>
+        </point>
+        <point id="MaxReactiveAmpsReference">
+            <label>Maximum Reactive Amps Reference</label>
+            <description>The absolute threshold for the reactive amps target</description>
+            <notes></notes>
+        </point>
+        <point id="ReactiveAmpsFromCapacitor">
+            <label>Reactive Amps From Capacitor</label>
+            <description>Reactive amps adjustment from output capacitance</description>
+            <notes></notes>
+        </point>
+        <point id="ReactiveAmpsTarget">
+            <label>Reactive Amps Target</label>
+            <description>Final output reactive amps after adjustments from the GSL, capacitance, and anti-islanding</description>
+            <notes></notes>
+        </point>
+        <point id="ReactiveAmpsTargetFromGSL">
+            <label>Reactive Amps Target From GSL</label>
+            <description>Target for reactive amps from GSL</description>
+            <notes></notes>
+        </point>
+        <point id="RealPowerAmpsReferenceTotal">
+            <label>Real Power Amps Reference Total</label>
+            <description>Used to determine whether power flows toward or away from REbus</description>
+            <notes></notes>
+        </point>
+        <point id="RealPowerAmpsReference1">
+            <label>Real Power Amps Reference for Phase 1</label>
+            <description>Phase 1 component of real power amps reference total - allows us to balance power between the lines</description>
+            <notes></notes>
+        </point>
+        <point id="RealPowerAmpsReference2">
+            <label>Real Power Amps Reference for Phase 2</label>
+            <description>Phase 2 component of real power amps reference total - allows us to balance power between the lines</description>
+            <notes></notes>
+        </point>
+        <point id="ReactiveAmpsReference">
+            <label>Reactive Amps Reference</label>
+            <description>Integral form of the reactive amps target</description>
+            <notes></notes>
+        </point>
+        <point id="RealPowerAmpsReferenceTarget">
+            <label>Real Power Amps Reference Target</label>
+            <description>Target from divy - total</description>
+            <notes></notes>
+        </point>
+        <point id="ApparentPowerVectorAmpLimit">
+            <label>Apparent Power Vector Amp Limit</label>
+            <description>Restricts all combined real and reactive amps from exceeding this limit</description>
+            <notes></notes>
+        </point>
+        <point id="PowerAsWattsNegativeLimit">
+            <label>Power as Watts Negative Limit</label>
+            <description>Negative real power limit</description>
+            <notes></notes>
+        </point>
+        <point id="PowerAsWattsPositiveLimit">
+            <label>Power as Watts Positive Limit</label>
+            <description>Positive real power limit</description>
+            <notes></notes>
+        </point>
+        <point id="PowerTargetAsPercent">
+            <label>Power Target as Percent</label>
+            <description>Target for real power dependent on mode</description>
+            <notes></notes>
+        </point>
+        <point id="PowerTargetAsAmps">
+            <label>Power Target as Amps</label>
+            <description>Amps required to reach the target for real power</description>
+            <notes></notes>
+        </point>
+        <point id="CTTargetSelfSupply">
+            <label>CT Target for Self Supply</label>
+            <description>CT target for self supply</description>
+            <notes></notes>
+        </point>
+        <point id="CTTargetZeroExport">
+            <label>CT Target for Zero Export</label>
+            <description>CT target for zero export</description>
+            <notes></notes>
+        </point>
+        <point id="CTTargetZeroImport">
+            <label>CT Target for Zero Import</label>
+            <description>CT target for zero import</description>
+            <notes></notes>
+        </point>
+        <point id="CTTargetGenConnected">
+            <label>CT Target when Gen Connected</label>
+            <description>CT target when generator connected</description>
+            <notes></notes>
+        </point>
+    </strings>
+</sunSpecModels>
