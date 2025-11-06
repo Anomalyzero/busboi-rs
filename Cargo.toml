@@ -25,6 +25,10 @@ path = "src/scan_subs.rs"
 name = "get_models"
 path = "src/get_models.rs"
 
+[[bin]]
+name = "update_aux_delay_time"
+path = "src/update_aux_delay_time.rs"
+
 [dependencies]
 clap-verbosity-flag = "2.0.1"
 sunspec_rs="0.7.0"
