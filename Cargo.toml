@@ -6,8 +6,7 @@ authors = ["Al Schwach", "Max Baldwin"]
 #license = "MIT"
 #TODO: Determine license
 description = "A simple Rust client for SunSpec/Outback Power Devices"
-#repository = "https://github.com/PeterGrace/sunspec_rs"
-#TODO: Clean up, commit and push
+repository = "git@github.com:Anomalyzero/busboi-rs.git"
 
 [[bin]]
 name = "print_all_gsconfig"
